@@ -64,7 +64,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	    		handler.postDelayed(run, delayMillis);
     		}else if(numStr < value){
     			tv_num.setText(numStr+100+"");
-	    		handler.postDelayed(run, delayMillis); 
+	    		handler.postDelayed(run, delayMillis);
     		}else if(numStr == value){
     			return;
     		}
