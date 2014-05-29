@@ -14,7 +14,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	private static int value = 0;
 	private final int delayMillis = 10;
-
+	// test
 	private Handler handler = new Handler();
 
 	@Override
