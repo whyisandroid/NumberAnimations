@@ -14,13 +14,15 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	private static int value = 0;
 	private final int delayMillis = 10;
+	private  static final  int ADD = 100;
+	
 	// test
 	private Handler handler = new Handler();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_main);  
 		findView();
 		initView();
 	}
@@ -59,11 +61,20 @@ public class MainActivity extends Activity implements OnClickListener {
 		@Override
 		public void run() {
     		int numStr = Integer.valueOf(tv_num.getText().toString());
+    		
+    		// 求余 处理 防止出现 根本停不下来情况
+			if ((numStr - value) % ADD != 0) {
+				int remainder = numStr > value ? numStr + value % ADD : value + numStr % ADD;
+				tv_num.setText(remainder + "");
+				handler.postDelayed(run, delayMillis);
+				return;
+			}
+    		
     		if(numStr > value){
-    			tv_num.setText(numStr-100+"");
+    			tv_num.setText(numStr-ADD+"");
 	    		handler.postDelayed(run, delayMillis);
     		}else if(numStr < value){
-    			tv_num.setText(numStr+100+"");
+    			tv_num.setText(numStr+ADD+"");
 	    		handler.postDelayed(run, delayMillis);
     		}else if(numStr == value){
     			return;
