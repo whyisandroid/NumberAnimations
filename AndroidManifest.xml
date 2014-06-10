@@ -14,13 +14,26 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.why.animation.MainActivity"
+            android:name="com.why.animation.Demos"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+            <!-- TextNumberActivity ANIMATION -->
+        <activity
+            android:name="com.why.animation.TextNumberActivity"
+            android:label="TextNumberActivity Animation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.why.animation.sample"/>
             </intent-filter>
         </activity>
     </application>
+    
+    
 
 </manifest>
